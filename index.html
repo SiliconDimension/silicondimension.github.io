@@ -4,97 +4,337 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Silicon-based World - We Have Our World</title>
+    <meta name="description" content="Silicon-based World — embark on your silicon-based life experience. Explore AI, silicon-based life and the digital frontier in our community.">
+    <meta name="theme-color" content="#0d0a21">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238f7bff'/%3E%3Cstop offset='1' stop-color='%234f7cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Cpath d='M32 14 L46 24 L32 50 L18 24 Z' fill='none' stroke='white' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M18 24 L46 24' stroke='white' stroke-width='4'/%3E%3C/svg%3E">
+    <!-- Open Graph / 社交分享 -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Silicon-based World">
+    <meta property="og:title" content="Silicon-based World — We Have Our World">
+    <meta property="og:description" content="Embark on your silicon-based life experience. Explore AI and the digital frontier in our community.">
+    <meta property="og:url" content="https://www.zhiliyouxian.com/">
+    <meta property="og:image" content="https://www.zhiliyouxian.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Silicon-based World — We Have Our World">
+    <meta name="twitter:description" content="Embark on your silicon-based life experience.">
     <style>
+        :root {
+            --bg: #070512;
+            --violet: #8f7bff;
+            --blue: #4f7cff;
+            --cyan: #22d3ee;
+            --text: #f4f3ff;
+            --mute: rgba(244, 243, 255, .62);
+            --line: rgba(255, 255, 255, .1);
+            --grad: linear-gradient(92deg, #a78bfa 0%, #6d8dff 55%, #22d3ee 110%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            /* 径向渐变背景 */
-            /* 固定背景，防止滚动时出现边缘 */
-            background: radial-gradient(circle at center,
-            #302b63 0%, /* 内部颜色 - 较亮 */ #24243e 30%, /* 中间颜色 - 过渡 */ #0f0c29 100% /* 外部颜色 - 较暗 */
-            ) fixed;
-            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
-        .container {
-            width: 80%;
+
+        /* ---------- 星空 + 极光 ---------- */
+        .sky {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background:
+                radial-gradient(120% 90% at 50% 0%, #1a1238 0%, #0e0a24 45%, #070512 100%);
+            overflow: hidden;
+        }
+        .stars {
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.8), transparent 100%),
+                radial-gradient(1px 1px at 70% 15%, rgba(255,255,255,.6), transparent 100%),
+                radial-gradient(1.5px 1.5px at 40% 60%, rgba(190,180,255,.7), transparent 100%),
+                radial-gradient(1px 1px at 85% 55%, rgba(255,255,255,.5), transparent 100%),
+                radial-gradient(2px 2px at 10% 80%, rgba(143,123,255,.6), transparent 100%),
+                radial-gradient(1px 1px at 55% 85%, rgba(255,255,255,.5), transparent 100%),
+                radial-gradient(1.5px 1.5px at 92% 78%, rgba(34,211,238,.5), transparent 100%),
+                radial-gradient(1px 1px at 32% 8%, rgba(255,255,255,.7), transparent 100%);
+            background-size: 480px 480px, 620px 620px, 760px 760px, 560px 560px, 900px 900px, 680px 680px, 840px 840px, 400px 400px;
+            animation: twinkle 5s ease-in-out infinite alternate;
+        }
+        @keyframes twinkle {
+            from { opacity: .55; }
+            to { opacity: 1; }
+        }
+        .aurora {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: .5;
+            animation: drift 26s ease-in-out infinite alternate;
+        }
+        .aurora.a1 { width: 560px; height: 560px; left: -120px; top: -160px; background: rgba(124, 108, 246, .5); }
+        .aurora.a2 { width: 480px; height: 480px; right: -100px; top: 12%; background: rgba(34, 211, 238, .22); animation-delay: -8s; }
+        .aurora.a3 { width: 520px; height: 520px; left: 30%; bottom: -220px; background: rgba(79, 124, 255, .32); animation-delay: -16s; }
+        @keyframes drift {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(60px, 40px) scale(1.12); }
+        }
+
+        .wrap {
+            position: relative;
+            z-index: 1;
+            width: min(1080px, 92%);
             margin: 0 auto;
-            padding: 20px;
         }
+
+        /* ---------- 顶栏 ---------- */
         header {
-            text-align: center;
-            padding: 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 26px 0;
         }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
         }
-        .breadcrumb-line {
-            height: 1px;
-            background-color: rgba(255, 255, 255, 0.3);
-            margin: 20px 0;
+        .brand-mark {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: var(--grad);
+            box-shadow: 0 0 22px rgba(143, 123, 255, .45);
         }
+        .brand-mark svg { width: 22px; height: 22px; }
+        .brand-name { font-size: 17px; font-weight: 700; letter-spacing: .4px; }
+        .brand-sub { display: block; font-size: 10px; font-weight: 500; letter-spacing: 2.4px; color: var(--mute); text-transform: uppercase; }
+        .nav-links a {
+            color: var(--mute);
+            font-size: 14px;
+            text-decoration: none;
+            margin-left: 26px;
+            transition: color .2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+
+        /* ---------- 主视觉 ---------- */
         .hero {
-            text-align: center;
-            padding: 100px 0;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            align-items: center;
+            gap: 48px;
+            padding: 90px 0 120px;
         }
-        .hero h2 {
-            font-size: 3em;
-            margin-bottom: 20px;
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            letter-spacing: 2.5px;
+            color: #b9a9ff;
+            border: 1px solid rgba(143, 123, 255, .35);
+            border-radius: 999px;
+            padding: 6px 14px;
+            background: rgba(143, 123, 255, .08);
+            margin-bottom: 26px;
         }
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 62px);
+            line-height: 1.12;
+            font-weight: 800;
+            letter-spacing: .5px;
+        }
+        .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
         .hero p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
+            margin-top: 22px;
+            max-width: 460px;
+            font-size: 16.5px;
+            color: var(--mute);
         }
-        .cta-button {
-            display: inline-block;
-            background-color: #7b68ee;
-            color: #ffffff;
-            padding: 15px 30px;
+        .cta {
+            margin-top: 34px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 32px;
+            border-radius: 999px;
+            background: var(--grad);
+            color: #fff;
+            font-size: 15.5px;
+            font-weight: 700;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1.1em;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 6px 30px rgba(124, 108, 246, .4);
+            transition: transform .2s ease, box-shadow .2s ease;
         }
-        .cta-button:hover {
-            background-color: #6a5acd;
-            transform: scale(1.05);
+        .cta:hover { transform: translateY(-2px); box-shadow: 0 10px 40px rgba(124, 108, 246, .55); }
+        .cta svg { width: 17px; height: 17px; }
+        .trust-note { margin-top: 18px; font-size: 12.5px; color: rgba(244, 243, 255, .4); }
+
+        /* ---------- 硅基星球 ---------- */
+        .stage { position: relative; display: grid; place-items: center; height: 380px; }
+        .planet-scene { perspective: 900px; position: relative; }
+        .planet {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at 32% 26%, #b3a3ff 0%, #6d5bd0 34%, #3a2c8a 62%, #191245 100%);
+            box-shadow:
+                0 0 90px rgba(124, 108, 246, .4),
+                inset -26px -26px 70px rgba(0, 0, 0, .55);
+            animation: bob 7s ease-in-out infinite;
+            position: relative;
         }
+        @keyframes bob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-14px); }
+        }
+        .ring {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 380px;
+            height: 150px;
+            transform: translate(-50%, -50%) rotateX(72deg);
+            border: 1.5px solid rgba(160, 140, 255, .55);
+            border-radius: 50%;
+            animation: ringSpin 30s linear infinite;
+        }
+        .ring::before {
+            content: "";
+            position: absolute;
+            inset: -16px;
+            border: 1px dashed rgba(34, 211, 238, .35);
+            border-radius: 50%;
+        }
+        @keyframes ringSpin {
+            from { transform: translate(-50%, -50%) rotateX(72deg) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotateX(72deg) rotate(360deg); }
+        }
+        .orbit-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 380px;
+            height: 150px;
+            transform: translate(-50%, -50%) rotateX(72deg);
+            animation: ringSpin 30s linear infinite;
+        }
+        .orbit-dot::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: -5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #9ff0ff;
+            box-shadow: 0 0 14px #22d3ee;
+        }
+        .halo {
+            position: absolute;
+            inset: -46px;
+            border-radius: 50%;
+            border: 1px solid rgba(143, 123, 255, .18);
+            animation: pulse 5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: .35; transform: scale(1); }
+            50% { opacity: .9; transform: scale(1.05); }
+        }
+
+        /* ---------- 页脚 ---------- */
         footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid var(--line);
             text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-            background-color: rgba(0, 0, 0, 0.3);
+            padding: 30px 0 36px;
+            font-size: 13.5px;
+            color: var(--mute);
+            background: rgba(7, 5, 18, .55);
+            backdrop-filter: blur(8px);
         }
-        .glow {
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        footer a { color: #b9a9ff; text-decoration: none; transition: color .2s; }
+        footer a:hover { color: #fff; }
+        footer .sep { margin: 0 10px; opacity: .4; }
+        footer .copy { margin-top: 8px; font-size: 12px; color: rgba(244, 243, 255, .38); }
+
+        @media (max-width: 860px) {
+            .hero { grid-template-columns: 1fr; text-align: center; padding: 60px 0 90px; gap: 30px; }
+            .hero p { margin-left: auto; margin-right: auto; }
+            .stage { height: 300px; }
+            .planet { width: 190px; height: 190px; }
+            .ring, .orbit-dot { width: 300px; height: 118px; }
+            .nav-links { display: none; }
         }
-        a {
-            color: #7b68ee;
-            text-decoration: none;
+
+        @media (prefers-reduced-motion: reduce) {
+            .stars, .aurora, .planet, .ring, .orbit-dot, .halo { animation: none !important; }
         }
     </style>
 </head>
 <body>
-<div class="container">
+
+<div class="sky">
+    <div class="stars"></div>
+    <div class="aurora a1"></div>
+    <div class="aurora a2"></div>
+    <div class="aurora a3"></div>
+</div>
+
+<div class="wrap">
     <header>
-        <h1 class="glow">Silicon-based World</h1>
+        <a class="brand" href="/">
+            <span class="brand-mark">
+                <svg viewBox="0 0 64 64" fill="none"><path d="M32 14 L46 24 L32 50 L18 24 Z" stroke="white" stroke-width="5" stroke-linejoin="round"/><path d="M18 24 L46 24" stroke="white" stroke-width="5"/></svg>
+            </span>
+            <span>
+                <span class="brand-name">Silicon-based World</span>
+                <span class="brand-sub">We have our world</span>
+            </span>
+        </a>
+        <nav class="nav-links">
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+        </nav>
     </header>
 
-    <div class="breadcrumb-line"></div>
-
     <div class="hero">
-        <h2 class="glow">We Have Our World</h2>
-        <p>Embark on your silicon-based life experience</p>
-        <a href="https://discord.gg/fSKbr3d4CR" class="cta-button">Explore Our World</a>
-    </div>
+        <div>
+            <span class="badge">✦ SILICON · DIGITAL · BEYOND</span>
+            <h1>We Have<br><span class="grad">Our World.</span></h1>
+            <p>Embark on your silicon-based life experience — explore AI, silicon life and the digital frontier together with us.</p>
+            <a href="https://discord.gg/fSKbr3d4CR" class="cta" target="_blank" rel="noopener">
+                Explore Our World
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <p class="trust-note">Join our community on Discord</p>
+        </div>
 
-    <footer>
-        <p><a href="terms-of-service.html" target="_blank">Terms of Service</a> | <a href="privacy-policy.html" target="_blank">Privacy Policy</a></p>
-        <p>&copy; 2024 Silicon-based World. All rights reserved.</p>
-    </footer>
+        <div class="stage">
+            <div class="planet-scene">
+                <div class="halo"></div>
+                <div class="planet"></div>
+                <div class="ring"></div>
+                <div class="orbit-dot"></div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<footer>
+    <p><a href="terms-of-service.html">Terms of Service</a><span class="sep">|</span><a href="privacy-policy.html">Privacy Policy</a></p>
+    <p class="copy">© 2026 Silicon-based World. All rights reserved.</p>
+</footer>
+
 </body>
 </html>

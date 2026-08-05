@@ -4,136 +4,225 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - Silicon-based World</title>
+    <meta name="description" content="Terms of Service of Silicon-based World — the terms that govern your access to and use of our Service.">
+    <meta name="theme-color" content="#0d0a21">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238f7bff'/%3E%3Cstop offset='1' stop-color='%234f7cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Cpath d='M32 14 L46 24 L32 50 L18 24 Z' fill='none' stroke='white' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M18 24 L46 24' stroke='white' stroke-width='4'/%3E%3C/svg%3E">
     <style>
-        /* 保持之前的样式 */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-            color: #ffffff;
-            line-height: 1.6;
+        :root {
+            --bg: #070512;
+            --violet: #8f7bff;
+            --text: #f4f3ff;
+            --mute: rgba(244, 243, 255, .62);
+            --faint: rgba(244, 243, 255, .38);
+            --line: rgba(255, 255, 255, .1);
+            --grad: linear-gradient(92deg, #a78bfa 0%, #6d8dff 55%, #22d3ee 110%);
         }
-        .container {
-            width: 80%;
-            max-width: 800px;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Roboto, sans-serif;
+            background:
+                radial-gradient(120% 90% at 50% 0%, #1a1238 0%, #0e0a24 45%, #070512 100%);
+            background-attachment: fixed;
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+        .sky {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .aurora {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: .4;
+        }
+        .aurora.a1 { width: 480px; height: 480px; left: -140px; top: -160px; background: rgba(124, 108, 246, .5); }
+        .aurora.a2 { width: 420px; height: 420px; right: -120px; top: 10%; background: rgba(34, 211, 238, .2); }
+
+        .wrap {
+            position: relative;
+            z-index: 1;
+            width: min(820px, 92%);
             margin: 0 auto;
-            padding: 20px;
         }
         header {
-            text-align: center;
-            padding: 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 26px 0;
         }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-        .content {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 10px;
-            margin-top: 40px;
-        }
-        .section {
-            margin-bottom: 30px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-            background-color: rgba(0, 0, 0, 0.3);
-        }
-        .glow {
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-        }
-        a {
-            color: #7b68ee;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
+            color: var(--text);
         }
-        a:hover {
-            text-decoration: underline;
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            display: grid;
+            place-items: center;
+            background: var(--grad);
+            box-shadow: 0 0 20px rgba(143, 123, 255, .4);
+        }
+        .brand-mark svg { width: 20px; height: 20px; }
+        .brand-name { font-size: 15px; font-weight: 700; letter-spacing: .3px; }
+        .back-link {
+            color: var(--mute);
+            font-size: 13.5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color .2s;
+        }
+        .back-link:hover { color: var(--text); }
+
+        .page-head { text-align: center; padding: 46px 0 34px; }
+        .page-head h1 {
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 800;
+            letter-spacing: .5px;
+        }
+        .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .page-head p { margin-top: 8px; font-size: 13px; color: var(--faint); letter-spacing: 2px; text-transform: uppercase; }
+
+        .content {
+            background: rgba(255, 255, 255, .035);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: clamp(24px, 5vw, 48px);
+            margin-bottom: 60px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, .4);
+        }
+        .content h2 { font-size: 17.5px; font-weight: 700; margin: 34px 0 12px; color: #cfc6ff; }
+        .content h2:first-child { margin-top: 0; }
+        .content p { font-size: 14.5px; color: var(--mute); margin-bottom: 14px; }
+        .content section { margin-bottom: 6px; }
+        .content a { color: #b9a9ff; text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+
+        footer {
+            border-top: 1px solid var(--line);
+            text-align: center;
+            padding: 26px 0 34px;
+            font-size: 13.5px;
+            color: var(--mute);
+        }
+        footer a { color: #b9a9ff; text-decoration: none; }
+        footer a:hover { color: #fff; }
+        footer .sep { margin: 0 10px; opacity: .4; }
+        footer .copy { margin-top: 8px; font-size: 12px; color: var(--faint); }
+
+        @media (max-width: 640px) {
+            .back-link span { display: none; }
         }
     </style>
 </head>
 <body>
-<div class="container">
+
+<div class="sky">
+    <div class="aurora a1"></div>
+    <div class="aurora a2"></div>
+</div>
+
+<div class="wrap">
     <header>
-        <h1 class="glow">Terms of Service</h1>
-        <p>Silicon-based World</p>
+        <a class="brand" href="index.html">
+            <span class="brand-mark">
+                <svg viewBox="0 0 64 64" fill="none"><path d="M32 14 L46 24 L32 50 L18 24 Z" stroke="white" stroke-width="5" stroke-linejoin="round"/><path d="M18 24 L46 24" stroke="white" stroke-width="5"/></svg>
+            </span>
+            <span class="brand-name">Silicon-based World</span>
+        </a>
+        <a class="back-link" href="index.html">← <span>Back to Home</span></a>
     </header>
 
+    <div class="page-head">
+        <h1>Terms of <span class="grad">Service</span></h1>
+        <p>Silicon-based World</p>
+    </div>
+
     <div class="content">
-        <section class="section">
+        <section>
             <h2>1. Acceptance of Terms</h2>
             <p>Please read these Terms of Service carefully before using the Silicon-based World website and services (the "Service") operated by Silicon-based World ("us," "we," or "our"). Your access to and use of the Service is conditioned upon your acceptance of and compliance with these Terms. These Terms apply to all visitors, users, and others who wish to access or use the Service. By accessing or using the Service, you agree to be bound by these Terms. If you disagree with any part of the terms, you do not have permission to access the Service.</p>
         </section>
 
-        <section class="section">
+        <section>
             <h2>2. Use of Services</h2>
             <p>Our services are intended for use as is. You agree not to modify, reverse engineer, or attempt to gain unauthorized access to our systems. We reserve the right to refuse service, terminate accounts, or remove or edit content at our sole discretion.</p>
         </section>
 
-        <section class="section">
+        <section>
             <h2>3. Purchases and Subscriptions</h2>
             <p>If you wish to purchase any product or service through the Service, you may be asked to supply certain information relevant to your Purchase. You represent and warrant that: (i) you have the legal right to use any payment method(s) in connection with any Purchase; and (ii) the information you supply to us is accurate, correct, and complete.</p>
             <p>We reserve the right to refuse or cancel your order at any time for reasons including but not limited to product or service availability, errors in the description or price of the product or service, error in your order, or other reasons. We reserve the right to refuse or cancel your order if fraud or an unauthorized or illegal transaction is suspected.</p>
         </section>
 
-        <section class="section">
+        <section>
             <h2>4. Intellectual Property</h2>
             <p>The content, features, and functionality of our services are owned by Silicon-based World and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws. You agree not to reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any of the material on our Service, except as permitted by us.</p>
         </section>
 
-        <section class="section">
+        <section>
             <h2>5. User Responsibilities</h2>
             <p>You are responsible for your use of our services and any content you provide. You agree not to use our services for any illegal or unauthorized purpose. You must not, in the use of the Service, violate any laws in your jurisdiction (including but not limited to copyright laws).</p>
         </section>
 
-        <section class="section">
+        <section>
             <h2>6. Privacy and Data Protection</h2>
             <p>Your use of the Service is also governed by our Privacy Policy. Please review our Privacy Policy, which also governs the Service and informs users of our data collection practices. We comply with applicable data protection laws, including the General Data Protection Regulation (GDPR) for users in the European Union.</p>
         </section>
 
-        <section class="section">
+        <section>
             <h2>7. Limitation of Liability</h2>
             <p>Silicon-based World shall not be liable for any indirect, incidental, special, consequential or punitive damages resulting from your use of our services. In no event will our liability exceed the amount you paid to us during the twelve (12) months prior to the event giving rise to the liability.</p>
         </section>
 
-        <section class="section">
+        <section>
             <h2>8. Indemnification</h2>
             <p>You agree to defend, indemnify, and hold harmless Silicon-based World and its licensee and licensors, and their employees, contractors, agents, officers, and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney's fees), resulting from or arising out of a) your use and access of the Service, or b) a breach of these Terms.</p>
         </section>
 
-        <section class="section">
+        <section>
             <h2>9. Third-Party Links</h2>
             <p>Our Service may contain links to third-party websites or services that are not owned or controlled by Silicon-based World. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites or services. You further acknowledge and agree that Silicon-based World shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods, or services available on or through any such websites or services.</p>
         </section>
 
-        <section class="section">
+        <section>
             <h2>10. Changes to Terms</h2>
             <p>We reserve the right to modify these terms at any time. We will provide notice of significant changes by posting an update on our website or by sending you an email. What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Service after any revisions become effective, you agree to be bound by the revised terms.</p>
         </section>
 
-        <section class="section">
+        <section>
             <h2>11. Governing Law and Dispute Resolution</h2>
             <p>These Terms shall be governed and construed in accordance with the laws of [Your Jurisdiction], without regard to its conflict of law provisions. Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. Any disputes arising out of or relating to these Terms or the Service will be resolved through negotiation, mediation, or arbitration in accordance with the rules of [Appropriate Arbitration Body].</p>
         </section>
 
-        <section class="section">
+        <section>
             <h2>12. Severability and Entire Agreement</h2>
             <p>If any provision of these Terms is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law, and the remaining provisions will continue in full force and effect. These Terms, including the Privacy Policy, constitute the entire agreement between us regarding our Service and supersede and replace any prior agreements we might have had between us regarding the Service.</p>
         </section>
 
-        <section class="section">
+        <section>
             <h2>13. Contact Us</h2>
-            <p>If you have any questions about these Terms, please contact us at <a href="https://discord.gg/fSKbr3d4CR" class="cta-button">discord</a>.</p>
+            <p>If you have any questions about these Terms, please contact us at <a href="https://discord.gg/fSKbr3d4CR">discord</a>.</p>
         </section>
     </div>
-
-    <footer>
-        <p><a href="terms-of-service.html">Terms of Service</a> | <a href="privacy-policy.html">Privacy Policy</a></p>
-        <p>&copy; 2024 Silicon-based World. All rights reserved.</p>
-    </footer>
 </div>
+
+<footer>
+    <p><a href="terms-of-service.html">Terms of Service</a><span class="sep">|</span><a href="privacy-policy.html">Privacy Policy</a></p>
+    <p class="copy">© 2026 Silicon-based World. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
