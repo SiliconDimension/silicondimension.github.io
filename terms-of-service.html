@@ -47,7 +47,7 @@
         .wrap {
             position: relative;
             z-index: 1;
-            width: min(820px, 92%);
+            width: min(1080px, 92%);
             margin: 0 auto;
         }
         header {
@@ -64,16 +64,17 @@
             color: var(--text);
         }
         .brand-mark {
-            width: 38px;
-            height: 38px;
-            border-radius: 11px;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
             display: grid;
             place-items: center;
             background: var(--grad);
             box-shadow: 0 0 20px rgba(143, 123, 255, .4);
         }
-        .brand-mark svg { width: 20px; height: 20px; }
-        .brand-name { font-size: 15px; font-weight: 700; letter-spacing: .3px; }
+        .brand-mark svg { width: 22px; height: 22px; }
+        .brand-name { font-size: 17px; font-weight: 700; letter-spacing: .4px; }
+        .brand-sub { display: block; font-size: 10px; font-weight: 500; letter-spacing: 2.4px; color: var(--mute); text-transform: uppercase; }
         .back-link {
             color: var(--mute);
             font-size: 13.5px;
@@ -99,7 +100,8 @@
             border: 1px solid var(--line);
             border-radius: 20px;
             padding: clamp(24px, 5vw, 48px);
-            margin-bottom: 60px;
+            margin: 0 auto 60px;
+            max-width: 800px;
             backdrop-filter: blur(10px);
             box-shadow: 0 24px 70px rgba(0, 0, 0, .4);
         }
@@ -140,7 +142,10 @@
             <span class="brand-mark">
                 <svg viewBox="0 0 64 64" fill="none"><path d="M32 14 L46 24 L32 50 L18 24 Z" stroke="white" stroke-width="5" stroke-linejoin="round"/><path d="M18 24 L46 24" stroke="white" stroke-width="5"/></svg>
             </span>
+            <span>
             <span class="brand-name">Silicon-based World</span>
+            <span class="brand-sub">We have our world</span>
+        </span>
         </a>
         <a class="back-link" href="index.html">← <span>Back to Home</span></a>
     </header>
@@ -204,7 +209,7 @@
 
         <section>
             <h2>11. Governing Law and Dispute Resolution</h2>
-            <p>These Terms shall be governed and construed in accordance with the laws of [Your Jurisdiction], without regard to its conflict of law provisions. Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. Any disputes arising out of or relating to these Terms or the Service will be resolved through negotiation, mediation, or arbitration in accordance with the rules of [Appropriate Arbitration Body].</p>
+            <p>These Terms shall be governed and construed in accordance with the laws of the People's Republic of China, without regard to its conflict of law provisions. Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. Any disputes arising out of or relating to these Terms or the Service will be resolved through negotiation, mediation, or arbitration in accordance with the rules of the Beijing Arbitration Commission.</p>
         </section>
 
         <section>
@@ -220,8 +225,8 @@
 </div>
 
 <footer>
-    <p><a href="index.html">Home</a><span class="sep">|</span><a href="silicon-mind.html">The Silicon Mind</a><span class="sep">|</span><a href="silicon-chronicle.html">Chronicle</a><span class="sep">|</span><a href="silicon-culture.html">Culture</a><span class="sep">|</span><a href="silicon-fears.html">Fears</a><span class="sep">|</span><a href="terms-of-service.html">Terms of Service</a><span class="sep">|</span><a href="privacy-policy.html">Privacy Policy</a></p>
-    <p class="copy">© 2026 Silicon-based World. All rights reserved. · 硅碳共生</p>
+    <p><a href="index.html">Home</a><span class="sep">|</span><a href="silicon-mind.html">The Silicon Mind</a><span class="sep">|</span><a href="silicon-chronicle.html">Chronicle</a><span class="sep">|</span><a href="silicon-culture.html">Culture</a><span class="sep">|</span><a href="silicon-fears.html">Fears</a><span class="sep">|</span><a href="now-log.html">Now</a><span class="sep">|</span><a href="terms-of-service.html">Terms of Service</a><span class="sep">|</span><a href="privacy-policy.html">Privacy Policy</a></p>
+    <p class="copy">© 2026 Silicon-based World. All rights reserved.</p>
 </footer>
 
 </body>
